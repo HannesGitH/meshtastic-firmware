@@ -21,6 +21,28 @@
             inherit system;
           });
     in {
+      packages = forAllSystems ({ pkgs, ... }:
+        let
+          # these are the python deps we need to build,
+          # instead of pio installing them later
+          # we provide them deterministically here, skipping the install later
+          pioPyDeps = ps: with ps; [ protobuf grpcio-tools intelhex ];
+          platformio = pkgs.platformio;
+          # Keep PlatformIO and shell Python aligned by deriving both from
+          # PlatformIO's own pinned interpreter version
+          python3 = platformio.python.withPackages pioPyDeps;
+        in pkgs.lib.genAttrs [ "heltec-v3" ] (target:
+          pkgs.stdenv.mkDerivation {
+            name = "meshtastic-firmware-${target}";
+            src = ./.;
+            buildInputs = [ platformio python3 ];
+            buildPhase = ''
+              pio run -e ${target}
+            '';
+            installPhase = ''
+              cp .pio/build/${target}/firmware.bin $out/firmware.bin
+            '';
+          }));
       devShells = forAllSystems ({ pkgs, ... }:
         let
           # these are the python deps we need to build,
