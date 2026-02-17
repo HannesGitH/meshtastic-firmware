@@ -10,5 +10,8 @@
   },
   "[powershell]": {
     "editor.defaultFormatter": "ms-vscode.powershell"
+  },
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
   }
 }
