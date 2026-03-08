@@ -34,8 +34,8 @@ extern "C" {
 #define LORA_DIO0 RADIOLIB_NC
 #define LORA_RESET (4)
 #define LORA_DIO1 (2)
-#define LORA_RXEN (9)
-#define LORA_BUSY (10)
+#define LORA_RXEN (10)
+#define LORA_BUSY (20)
 #define LORA_SCK (8)
 #define LORA_MISO (7)
 #define LORA_MOSI (6)
