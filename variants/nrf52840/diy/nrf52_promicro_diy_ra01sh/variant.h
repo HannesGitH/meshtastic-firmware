@@ -60,6 +60,11 @@ NRF52 PRO MICRO — AI-Thinker RA-01SH wiring
 #define ADC_MULTIPLIER VBAT_DIVIDER_COMP
 #define VBAT_RAW_TO_SCALED(x) (REAL_VBAT_MV_PER_LSB * x)
 
+// I2C — not actively used, but Wire must exist for sensor library compilation
+#define WIRE_INTERFACES_COUNT 1
+#define PIN_WIRE_SDA (0 + 17) // P0.17
+#define PIN_WIRE_SCL (0 + 20) // P0.20
+
 // LED
 #define PIN_LED1 (0 + 15) // P0.15
 #define LED_BLUE PIN_LED1
