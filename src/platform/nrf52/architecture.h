@@ -103,6 +103,8 @@
 #define HW_VENDOR meshtastic_HardwareModel_NRF52840_PCA10059
 #elif defined(TWC_MESH_V4)
 #define HW_VENDOR meshtastic_HardwareModel_TWC_MESH_V4
+#elif defined(NRF52_PROMICRO_RA01SH)
+#define HW_VENDOR meshtastic_HardwareModel_HELTEC_V1
 #elif defined(NRF52_PROMICRO_DIY)
 #define HW_VENDOR meshtastic_HardwareModel_NRF52_PROMICRO_DIY
 #elif defined(WIO_WM1110)
